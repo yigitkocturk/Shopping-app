@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {FlatList, ActivityIndicator} from 'react-native';
 import Config from "react-native-config";
 import ProductCard from '../../components/ProductCard/ProductCard';
 import useFetch from '../../hooks/useFetch/useFetch';
 
+
+
 const Products = ({navigation}) => {
+  
   const {loading, data, error} = useFetch(Config.REACT_APP_API_URL);
 
   const handleProductSelect = id => {
@@ -23,7 +26,11 @@ const Products = ({navigation}) => {
     return <Text>{error} </Text>;
   }
 
-  return <FlatList data={data} renderItem={renderProduct} />;
+  return <FlatList data={data} renderItem={renderProduct} />
+   
+  
+  
+ 
 };
 
 export default Products;
